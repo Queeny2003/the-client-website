@@ -13,6 +13,19 @@
     flex-wrap: wrap;
     gap: 24px;
   }
+
+  fieldset label{
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+
+  nav[aria-label="Filter op beginletter"] ul {
+    justify-content: center;
+  }
+
+  .iconen-grid {
+    grid-template-columns: repeat(auto-fit), minmax(70px, 1ft);
+  }
 }
 
 * {
@@ -330,4 +343,155 @@ nav[aria-label="Filter op beginletter"] a:hover {
   font-size: 0.85rem;
 }
 
+dialog {
+  border: none;
+  border-radius: 8px;
+  padding: 24px;
+  max-width: 400px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0,2);
+}
 
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0,5);
+}
+
+dialog h2 {
+  margin-bottom: 16px;
+}
+
+dialog label {
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+ialog {
+  border: none;
+  border-radius: 8px;
+  padding: 24px;
+  max-width: 400px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+dialog h2 {
+  margin-bottom: 16px;
+}
+
+dialog label {
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+dialog select,
+dialog input[type="color"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+dialog button {
+  margin-top: 20px;
+  margin-right: 8px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--paars);
+  color: var(--wit);
+  cursor: pointer;
+}
+
+nav[aria-label="Kruimelpad"] {
+  margin-bottom: 24px;
+}
+
+nav[aria-label="Kruimelpad"] a {
+  color: var(--paars);
+  text-decoration: none;
+}
+
+nav[aria-label="Kruimelpad"] a:hover {
+  text-decoration: underline;
+}
+
+main section {
+  margin-bottom: 40px;
+}
+
+main section h2 {
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--grijs);
+}
+
+main section h3 {
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.varianten-vergelijk {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 16px;
+  list-style: none;
+}
+
+.varianten-vergelijk li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  background-color: var(--grijs);
+  border-radius: 8px;
+}
+
+.varianten-vergelijk img {
+  width: 64px;
+  height: 64px;
+}
+
+.varianten-vergelijk span {
+  margin-top: 8px;
+  font-weight: bold;
+}
+
+#toegankelijkheid-advies {
+  margin-top: 16px;
+  padding: 12px 16px;
+  background-color: var(--grijs);
+  border-left: 4px solid var(--paars);
+  border-radius: 4px;
+}
+
+#embed-code {
+  width: 100%;
+  margin-top: 8px;
+  padding: 12px;
+  font-family: monospace;
+  background-color: var(--tekst);
+  color: #d4d4d4;
+  border: none;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+#kopieer-embed {
+  margin-top: 12px;
+  padding: 8px 16px;
+  background-color: var(--paars);
+  color: var(--wit);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#kopieer-embed:hover {
+  background-color: #4f2069;
+}
