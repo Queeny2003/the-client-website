@@ -80,7 +80,7 @@ h1 em {
     font-size: normal;
 }
 
-.kaarten.sectie {
+.kaarten-sectie {
     display: flex;
     gap: 24px;
     margin-top: 32px;
@@ -103,7 +103,7 @@ article {
 }
 
 .iconen-grid img {
-  width: 100%;
+  width: 80%;
   height: auto;
 }
 
@@ -282,14 +282,15 @@ nav[aria-label="Filter op beginletter"] ul {
   flex-wrap: wrap;
   gap: 8px;
   margin: 24px 0;
+  list-style: none;
 }
 
 nav[aria-label="Filter op beginletter"] a {
-  display: inline-block;
+  display: flex;
   width: 28px;
   height: 28px;
-  text-align: center;
-  line-height: 28px;
+  align-items: center;
+  justify-content: center;
   background-color: var(--paars);
   border-radius: 4px;
   text-decoration: none;
