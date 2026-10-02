@@ -80,7 +80,7 @@ h1 em {
     font-size: normal;
 }
 
-section {
+.kaarten.sectie {
     display: flex;
     gap: 24px;
     margin-top: 32px;
@@ -145,8 +145,6 @@ dt {
   color: #555;
 }
 
-
-/* de 250,4, svg, cc0 moeten boven de kleine tekst*/
 dd {
   font-size: 2rem;
   font-weight: bold;
@@ -185,7 +183,7 @@ article > a {
   margin-top: 12px;
   padding: 8px 16px;
   background-color: var(--paars);
-  color: var(--wit);
+  color: var(--grijs);
   text-decoration: none;
   border-radius: 4px;
   box-shadow: 0 7px 10px rgba(0, 0, 0, 0.2);
@@ -250,3 +248,85 @@ form[role="search"] button {
   font-size: 0.8rem;
   color: #666;
 }
+
+fieldset {
+  border: none;
+  margin: 24px 0;
+}
+
+fieldset legend {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+fieldset label { 
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: var(--grijs);
+  border-radius: 4px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+fieldset label:has(input:checked) {
+  background-color: var(--paars);
+  color: var(--wit);
+}
+
+fieldset input[type="radio"] {
+  display: none;
+}
+
+nav[aria-label="Filter op beginletter"] ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 24px 0;
+}
+
+nav[aria-label="Filter op beginletter"] a {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  text-align: center;
+  line-height: 28px;
+  background-color: var(--paars);
+  border-radius: 4px;
+  text-decoration: none;
+  color: var(--wit);
+}
+
+nav[aria-label="Filter op beginletter"] a:hover {
+  background-color: #4f2069;
+  color: var(--wit);
+}
+
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 16px;
+  list-style: none;
+  margin-top: 24px;
+}
+
+.icon-grid li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 12px;
+  background-color: var(--grijs);
+  border-radius: 8px;
+}
+
+.icon-grid img {
+  width: 48px;
+  height: 48px;
+}
+
+.icon-grid span {
+  margin-top: 8px;
+  font-size: 0.85rem;
+}
+
+
