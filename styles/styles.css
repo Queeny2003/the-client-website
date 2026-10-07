@@ -1,131 +1,201 @@
-/* CSS */
-@media (max-width: 700px) {
-  section {
-    flex-direction: column;
-  }
-
-  header {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  dl {
-    flex-wrap: wrap;
-    gap: 24px;
-  }
-
-  fieldset label{
-    display: inline-block;
-    margin-bottom: 8px;
-  }
-
-  nav[aria-label="Filter op beginletter"] ul {
-    justify-content: center;
-  }
-
-  .iconen-grid {
-    grid-template-columns: repeat(auto-fit), minmax(70px, 1ft);
-  }
-}
-
+/* ===== Basis ===== */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
   --paars: #6b2d8f;
+  --paars-donker: #4f2069;
   --wit: #ffffff;
   --grijs: #f4f4f4;
   --tekst: #1a1a1a;
+  --schaduw: 0 7px 10px rgba(0, 0, 0, 0.2);
 }
 
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: var(--tekst);
-    line-height: 1.5;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: var(--tekst);
+  line-height: 1.5;
 }
 
+/* ===== Header ===== */
 header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: nowrap;
-    padding: 16px 32px;
-    background-color: var(--wit);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  padding: 16px 32px;
+  background-color: var(--wit);
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+    gap: 12px;
+  }
 }
 
+.logo-knop img {
+  height: 60px;
+  width: auto;
+}
 
-nav ul {
+/* ===== Navigatie ===== */
+nav {
+  ul {
     display: flex;
     gap: 24px;
     list-style: none;
-}
+  }
 
-nav li a {
+  li a {
     text-decoration: none;
     color: var(--wit);
     padding: 8px 16px;
     background-color: var(--paars);
     border-radius: 4px;
-    box-shadow: 0 7px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--schaduw);
+
+    &:hover {
+      background-color: var(--paars-donker);
+    }
+  }
+
+  /* Filter op beginletter */
+  &[aria-label="Filter op beginletter"] {
+    ul {
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 24px 0;
+
+      @media (max-width: 700px) {
+        justify-content: center;
+      }
+    }
+
+    a {
+      display: flex;
+      width: 28px;
+      height: 28px;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--paars);
+      border-radius: 4px;
+      text-decoration: none;
+      color: var(--wit);
+
+      &:hover {
+        background-color: var(--paars-donker);
+        color: var(--wit);
+      }
+    }
+  }
+
+  /* Kruimelpad */
+  &[aria-label="Kruimelpad"] {
+    margin-bottom: 24px;
+
+    a {
+      color: var(--paars);
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 }
 
-.logo-knop img {
-    height: 60px;
-    width: auto;
-}
-
+/* ===== Main ===== */
 main {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 48px 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 32px;
+
+  section {
+    margin-bottom: 40px;
+
+    h2 {
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--grijs);
+    }
+
+    h3 {
+      margin-top: 16px;
+      margin-bottom: 8px;
+    }
+  }
 }
 
 h1 {
-    font-size: 2.5rem;
-    margin-bottom: 16px;
-}
+  font-size: 2.5rem;
+  margin-bottom: 16px;
 
-h1 em { 
+  em {
     color: var(--paars);
-    font-size: normal;
+    font-style: normal;
+  }
 }
 
+/* ===== Kaarten ===== */
 .kaarten-sectie {
-    display: flex;
-    gap: 24px;
-    margin-top: 32px;
+  display: flex;
+  gap: 24px;
+  margin-top: 32px;
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+  }
 }
 
 article {
-    flex: 1;
-    background-color: var(--grijs);
-    padding: 24px;
-    border-radius: 8px;
-    box-shadow: 0 7px 10px rgba(0, 0, 0, 0.2);
+  flex: 1;
+  background-color: var(--grijs);
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: var(--schaduw);
+
+  p {
+    min-height: 110px;
+  }
+
+  & > a {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 8px 16px;
+    background-color: var(--paars);
+    color: var(--grijs);
+    text-decoration: none;
+    border-radius: 4px;
+    box-shadow: var(--schaduw);
+
+    &:hover {
+      background-color: var(--paars-donker);
+    }
+  }
 }
 
-.iconen-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
-  gap: 12px;
-  list-style: none;
-  margin-top: 16px;
-}
-
-.iconen-grid img {
-  width: 80%;
-  height: auto;
-}
-
+/* ===== Grids op de homepage ===== */
+.iconen-grid,
 .illustraties-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
   gap: 12px;
   list-style: none;
   margin-top: 16px;
+}
+
+.iconen-grid {
+  img {
+    width: 80%;
+    height: auto;
+  }
+
+  span {
+    font-size: 0.8rem;
+    color: #666;
+  }
 }
 
 .illustraties-grid img {
@@ -135,6 +205,7 @@ article {
   border-radius: 4px;
 }
 
+/* ===== Statistieken ===== */
 dl {
   display: flex;
   justify-content: space-around;
@@ -143,323 +214,235 @@ dl {
   padding: 32px;
   background-color: var(--grijs);
   border-radius: 8px;
-  box-shadow: 0 7px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--schaduw);
+
+  @media (max-width: 700px) {
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  & > div {
+    display: flex;
+    flex-direction: column-reverse;
+    background: none;
+    border: none;
+  }
+
+  dt {
+    font-size: 0.9rem;
+    color: #555;
+  }
+
+  dd {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--paars);
+  }
 }
 
-dl > div {
-  display: flex;
-  flex-direction: column-reverse;
-  background: none;
-  border: none;
-}
-
-dt {
-  font-size: 0.9rem;
-  color: #555;
-}
-
-dd {
-  font-size: 2rem;
-  font-weight: bold;
-  color: var(--paars);
-}
-
-footer {
-  display: flex;
-  gap: 32px;
-  background-color: var(--paars);
-  color: var(--wit);
-  padding: 32px;
-  margin-top: 48px;
-}
-
-footer img {
-  width: 180px;
-  height: auto;
-}
-
-footer h2 {
-  font-size: 1.1rem;
-  margin-bottom: 8px;
-}
-
-footer a {
-  color: var(--wit);
-}
-
-footer ul {
-  list-style: none;
-}
-
-article > a {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 8px 16px;
-  background-color: var(--paars);
-  color: var(--grijs);
-  text-decoration: none;
-  border-radius: 4px;
-  box-shadow: 0 7px 10px rgba(0, 0, 0, 0.2);
-}
-
-article p {
-  min-height: 110px;
-}
-
-article > a:hover {
-  background-color: #4f2069;
-}
-
-nav li a:hover {
-  background-color: #4f2069;
-}
-
+/* ===== Details / FAQ ===== */
 details {
   background-color: var(--grijs);
   padding: 16px 24px;
   border-radius: 8px;
   margin-bottom: 12px;
+
+  summary {
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  em{ 
+    color: #6b2d8f;
+  }
+
+  p {
+    margin-top: 12px;
+  }
 }
 
-summary {
-  font-weight: bold;
-  cursor: pointer;
-}
-
-details p {
-  margin-top: 12px;
-}
+/* ===== Zoeken ===== */
 form[role="search"] {
   margin: 32px 0;
+
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  input {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 300px;
+    max-width: 100%;
+  }
+
+  button {
+    padding: 10px 16px;
+    background-color: var(--paars);
+    color: var(--wit);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: var(--schaduw);
+  }
 }
 
-form[role="search"] label {
-  display:block;
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-form[role="search"] input {
-  padding:  8px 12px;
-  border:  1px solid #ccc;
-  border-radius: 4px;
-  width: 300px;
-  max-width: 100%;
-}
-
-form[role="search"] button {
-  padding: 8px 16px;
-  background-color: var(--paars);
-  color: var(--wit);
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  box-shadow: 0 7px 10px rgba(0, 0, 0, 0.2);
-}
-
-.iconen-grid span {
-  font-size: 0.8rem;
-  color: #666;
-}
-
+/* ===== Filter (radio's) ===== */
 fieldset {
   border: none;
   margin: 24px 0;
+
+  legend {
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  label {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: var(--grijs);
+    border-radius: 4px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    cursor: pointer;
+
+    &:has(input:checked) {
+      background-color: var(--paars);
+      color: var(--wit);
+    }
+  }
+
+  input[type="radio"] {
+    display: none;
+  }
 }
 
-fieldset legend {
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-fieldset label { 
-  display: inline-block;
-  padding: 8px 16px;
-  background-color: var(--grijs);
-  border-radius: 4px;
-  margin-right: 8px;
-  cursor: pointer;
-}
-
-fieldset label:has(input:checked) {
-  background-color: var(--paars);
-  color: var(--wit);
-}
-
-fieldset input[type="radio"] {
-  display: none;
-}
-
-nav[aria-label="Filter op beginletter"] ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 24px 0;
-  list-style: none;
-}
-
-nav[aria-label="Filter op beginletter"] a {
-  display: flex;
-  width: 28px;
-  height: 28px;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--paars);
-  border-radius: 4px;
-  text-decoration: none;
-  color: var(--wit);
-}
-
-nav[aria-label="Filter op beginletter"] a:hover {
-  background-color: #4f2069;
-  color: var(--wit);
-}
-
+/* ===== Iconenlijst: onder elkaar ===== */
 .icon-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-  gap: 16px;
-  list-style: none;
-  margin-top: 24px;
-}
-
-.icon-grid li {
   display: flex;
   flex-direction: column;
+  gap: 12px;
+  list-style: none;
+  margin-top: 24px;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px;
+    background-color: var(--grijs);
+    border-radius: 8px;
+  }
+
+  img {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+  }
+
+  span {
+    font-size: 0.85rem;
+  }
+}
+
+/* ===== Paginering ===== */
+.paginering {
+  display: flex;
+  justify-content: center;
   align-items: center;
-  text-align: center;
-  padding: 12px;
-  background-color: var(--grijs);
-  border-radius: 8px;
+  gap: 16px;
+  margin-top: 24px;
+
+  button {
+    padding: 8px 16px;
+    background-color: var(--paars);
+    color: var(--wit);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover:not(:disabled) {
+      background-color: var(--paars-donker);
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
 }
 
-.icon-grid img {
-  width: 48px;
-  height: 48px;
-}
-
-.icon-grid span {
-  margin-top: 8px;
-  font-size: 0.85rem;
-}
-
+/* ===== Dialog ===== */
 dialog {
   border: none;
   border-radius: 8px;
   padding: 24px;
   max-width: 400px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0,2);
-}
-
-dialog::backdrop {
-  background-color: rgba(0, 0, 0, 0,5);
-}
-
-dialog h2 {
-  margin-bottom: 16px;
-}
-
-dialog label {
-  display: block;
-  margin-top: 12px;
-  margin-bottom: 4px;
-  font-weight: bold;
-}
-
-ialog {
-  border: none;
-  border-radius: 8px;
-  padding: 24px;
-  max-width: 400px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+  &::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  h2 {
+    margin-bottom: 16px;
+  }
+
+  label {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 4px;
+    font-weight: bold;
+  }
+
+  select,
+  input[type="color"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+  }
+
+  button {
+    margin-top: 20px;
+    margin-right: 8px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--paars);
+    color: var(--wit);
+    cursor: pointer;
+  }
 }
 
-dialog::backdrop {
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-dialog h2 {
-  margin-bottom: 16px;
-}
-
-dialog label {
-  display: block;
-  margin-top: 12px;
-  margin-bottom: 4px;
-  font-weight: bold;
-}
-
-dialog select,
-dialog input[type="color"] {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 100%;
-}
-
-dialog button {
-  margin-top: 20px;
-  margin-right: 8px;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  background-color: var(--paars);
-  color: var(--wit);
-  cursor: pointer;
-}
-
-nav[aria-label="Kruimelpad"] {
-  margin-bottom: 24px;
-}
-
-nav[aria-label="Kruimelpad"] a {
-  color: var(--paars);
-  text-decoration: none;
-}
-
-nav[aria-label="Kruimelpad"] a:hover {
-  text-decoration: underline;
-}
-
-main section {
-  margin-bottom: 40px;
-}
-
-main section h2 {
-  margin-bottom: 12px;
-  padding-bottom: 8px;
-  border-bottom: 2px solid var(--grijs);
-}
-
-main section h3 {
-  margin-top: 16px;
-  margin-bottom: 8px;
-}
-
+/* ===== Variantenpagina ===== */
 .varianten-vergelijk {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: 16px;
   list-style: none;
-}
 
-.varianten-vergelijk li {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 16px;
-  background-color: var(--grijs);
-  border-radius: 8px;
-}
+  li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    background-color: var(--grijs);
+    border-radius: 8px;
+  }
 
-.varianten-vergelijk img {
-  width: 64px;
-  height: 64px;
-}
+  img {
+    width: 64px;
+    height: 64px;
+  }
 
-.varianten-vergelijk span {
-  margin-top: 8px;
-  font-weight: bold;
+  span {
+    margin-top: 8px;
+    font-weight: bold;
+  }
 }
 
 #toegankelijkheid-advies {
@@ -490,8 +473,36 @@ main section h3 {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+
+  &:hover {
+    background-color: var(--paars-donker);
+  }
 }
 
-#kopieer-embed:hover {
-  background-color: #4f2069;
+/* ===== Footer ===== */
+footer {
+  display: flex;
+  gap: 32px;
+  background-color: var(--paars);
+  color: var(--wit);
+  padding: 32px;
+  margin-top: 48px;
+
+  img {
+    width: 180px;
+    height: auto;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+
+  a {
+    color: var(--wit);
+  }
+
+  ul {
+    list-style: none;
+  }
 }
